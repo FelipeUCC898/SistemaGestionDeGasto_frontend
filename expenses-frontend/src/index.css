@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: inherit;
+    line-height: 1.5;
+    color: theme('colors.neutral.700');
+    background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Botones */
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-light-500 hover:bg-light-600 text-neutral-700 font-medium py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 border border-light-400;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-neutral-700 font-medium py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-medium transition-all duration-300 backdrop-blur-sm bg-opacity-95;
+  }
+  
+  .card-dark {
+    @apply bg-neutral-700 text-white rounded-xl border border-neutral-600 shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+
+  /* Campos de formulario */
+  .input-field {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-white placeholder-neutral-400;
+  }
+  
+  .input-field-dark {
+    @apply w-full px-4 py-3 border border-neutral-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200 bg-neutral-700 text-white placeholder-neutral-400;
+  }
+
+  /* Badges y etiquetas */
+  .badge-primary {
+    @apply bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-accent {
+    @apply bg-accent-100 text-neutral-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-light {
+    @apply bg-light-100 text-neutral-600 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Navegación */
+  .nav-item {
+    @apply flex items-center px-4 py-3 text-neutral-600 hover:text-primary-500 hover:bg-primary-50 rounded-xl transition-all duration-200 font-medium;
+  }
+  
+  .nav-item-active {
+    @apply flex items-center px-4 py-3 text-primary-500 bg-primary-50 rounded-xl font-medium;
+  }
+
+  /* Tablas */
+  .table-header {
+    @apply bg-neutral-50 text-neutral-700 font-semibold border-b border-neutral-200;
+  }
+  
+  .table-row {
+    @apply border-b border-neutral-100 hover:bg-neutral-50 transition-colors duration-150;
+  }
+
+  /* Estados de transacción */
+  .transaction-income {
+    @apply text-success font-medium bg-success bg-opacity-10 px-2 py-1 rounded-lg;
+  }
+  
+  .transaction-expense {
+    @apply text-primary-500 font-medium bg-primary-500 bg-opacity-10 px-2 py-1 rounded-lg;
+  }
+
+  /* Gradientes personalizados */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 to-primary-600;
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-500 to-accent-600;
+  }
+  
+  .gradient-dark {
+    @apply bg-gradient-to-br from-neutral-700 to-neutral-800;
+  }
+
+  /* Efectos de glassmorphism */
+  .glass {
+    @apply backdrop-blur-md bg-white bg-opacity-80 border border-white border-opacity-20;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-neutral-800 bg-opacity-80 border border-neutral-700 border-opacity-20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.neutral.100');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.neutral.400');
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.neutral.500');
+}
