@@ -14,7 +14,7 @@ export const ReportsPage: React.FC = () => {
   const [summary, setSummary] = useState<FinancialSummary | null>(null);
   const [categoryReport, setCategoryReport] = useState<ReportByCategory | null>(null);
   const [loading, setLoading] = useState(true);
-  const [dateFilter, setDateFilter] = useState<{ fechaInicio: string | null; fechaFin: string | null }>({
+  const [, setDateFilter] = useState<{ fechaInicio: string | null; fechaFin: string | null }>({
     fechaInicio: null,
     fechaFin: null,
   });
@@ -163,7 +163,7 @@ export const ReportsPage: React.FC = () => {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {expensesData.map((entry, index) => (
+                        {expensesData.map((_, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -195,7 +195,7 @@ export const ReportsPage: React.FC = () => {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {incomeData.map((entry, index) => (
+                        {incomeData.map((_, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
