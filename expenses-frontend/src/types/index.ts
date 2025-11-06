@@ -1,5 +1,5 @@
 export interface User {
-  id: string; // ✅ Cambiado de number a string
+  id: string;
   apodo: string;
   correo: string;
 }
@@ -22,9 +22,9 @@ export interface RegisterRequest {
 }
 
 export interface Category {
-  id: string; // ✅ Cambiado de number a string
+  id: string;
   nombre: string;
-  usuarioId?: string; // ✅ Cambiado de number a string
+  usuarioId?: string;
 }
 
 export interface CategoryRequest {
@@ -34,28 +34,31 @@ export interface CategoryRequest {
 export type TransactionType = 'INGRESO' | 'GASTO';
 
 export interface Transaction {
-  id: string; // ✅ Cambiado de number a string
+  id: string;
   tipoTransaccion: TransactionType;
-  categoriaId: string; // ✅ Cambiado de number a string
+  categoriaId: string;
   categoriaNombre?: string;
   descripcion: string;
   monto: number;
   fecha: string;
-  usuarioId?: string; // ✅ Cambiado de number a string
+  usuarioId?: string;
 }
 
 export interface TransactionRequest {
   tipoTransaccion: TransactionType;
-  categoriaId: string; // ✅ Cambiado de number a string
+  categoriaId: string;
   descripcion: string;
   monto: number;
 }
 
+// ✅ ACTUALIZADO: Agregamos fechas opcionales
 export interface FinancialSummary {
   totalIngresos: number;
   totalGastos: number;
   balance: number;
   totalTransacciones: number;
+  fechaInicio?: string;
+  fechaFin?: string;
 }
 
 export interface CategorySummary {
@@ -69,4 +72,10 @@ export interface ReportByCategory {
   resumenPorCategoria: CategorySummary[];
   gastosPorCategoria: Record<string, number>;
   ingresosPorCategoria: Record<string, number>;
+}
+
+// ✅ NUEVO: Interface para filtros de fecha
+export interface DateRangeFilter {
+  fechaInicio?: string;
+  fechaFin?: string;
 }
